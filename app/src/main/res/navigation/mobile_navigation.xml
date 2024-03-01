@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.app.ivansuhendra.warehousegla.ui.fragment.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_nav_home_to_homeFragment"
+            app:destination="@id/nav_home"/>
+
+        <action
+            android:id="@+id/action_nav_home_to_containerFragment"
+            app:destination="@id/nav_container"/>
+
+        <action
+            android:id="@+id/action_nav_home_to_loadingFragment"
+            app:destination="@id/nav_loading"/>
+
+        <action
+            android:id="@+id/action_nav_home_to_rackingFragment"
+            app:destination="@id/nav_racking"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_container"
+        android:name="com.app.ivansuhendra.warehousegla.ui.fragment.container.ContainerFragment"
+        android:label="@string/menu_container"
+        tools:layout="@layout/fragment_container" />
+
+    <fragment
+        android:id="@+id/nav_loading"
+        android:name="com.app.ivansuhendra.warehousegla.ui.fragment.loading.LoadingFragment"
+        android:label="@string/menu_loading"
+        tools:layout="@layout/fragment_loading" />
+
+    <fragment
+        android:id="@+id/nav_racking"
+        android:name="com.app.ivansuhendra.warehousegla.ui.fragment.racking.RackingFragment"
+        android:label="@string/menu_racking"
+        tools:layout="@layout/fragment_racking" />
+</navigation>
