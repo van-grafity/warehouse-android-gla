@@ -173,6 +173,12 @@
         <item name="android:textSize">36sp</item>
     </style>
 
+    <style name="TextAppearance.Light6" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/Lato-Light.ttf</item>
+        <item name="android:textSize">6sp</item>
+    </style>
+
     <style name="TextAppearance.Light8" parent="android:TextAppearance">
         <!-- Custom Attr-->
         <item name="fontPath">fonts/Lato-Light.ttf</item>

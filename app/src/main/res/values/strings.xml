@@ -23,4 +23,8 @@
     <string name="search">Search</string>
     <string name="fabric_loading">Fabric Loading</string>
     <string name="fabric_racking">Fabric Racking</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="want_to_open_seal">Want to open seal for container?</string>
+    <string name="profile_update">Ubah Profile</string>
 </resources>

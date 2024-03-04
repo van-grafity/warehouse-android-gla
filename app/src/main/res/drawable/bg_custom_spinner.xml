@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background for the spinner -->
+    <item android:drawable="@drawable/round_bg_progress" />
+
+    <!-- Arrow icon -->
+    <item
+        android:id="@+id/arrow_layer"
+        android:drawable="@drawable/arrow_circle"
+        android:gravity="end|center_vertical" />
+</layer-list>
