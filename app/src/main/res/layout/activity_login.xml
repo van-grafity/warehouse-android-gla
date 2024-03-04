@@ -28,9 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="100dp"
-        android:layout_marginRight="24dp">
+        android:layout_marginHorizontal="@dimen/card_login_space_horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,21 +39,21 @@
                 android:id="@+id/card_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="@dimen/card_login_support_anim_space_top"
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="@dimen/card_login_support_anim_space_top"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="@dimen/large">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Login"
+                        android:text="@string/login"
                         android:textAppearance="@style/TextAppearance.Bold28"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
@@ -62,33 +61,33 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Email" />
+                        android:text="@string/email" />
 
                     <EditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="example@ghimli.com" />
+                        android:hint="@string/example_email" />
 
                     <androidx.legacy.widget.Space
                         android:layout_width="match_parent"
-                        android:layout_height="14dp" />
+                        android:layout_height="@dimen/small" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Password" />
+                        android:text="@string/password" />
 
                     <EditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Password"
+                        android:hint="@string/password"
                         android:inputType="textPassword" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_login"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="@dimen/normal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Login" />
@@ -98,8 +97,8 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/ic_warehouse_size"
+            android:layout_height="@dimen/ic_warehouse_size"
             android:layout_centerHorizontal="true"
             android:src="@drawable/ic_inventory" />
 

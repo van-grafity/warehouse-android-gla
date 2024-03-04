@@ -27,4 +27,8 @@
     <string name="cancel">Cancel</string>
     <string name="want_to_open_seal">Want to open seal for container?</string>
     <string name="profile_update">Ubah Profile</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="example_email">example@ghimli.com</string>
 </resources>
