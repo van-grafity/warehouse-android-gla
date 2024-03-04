@@ -24,4 +24,5 @@
     <dimen name="card_login_space_horizontal">24dp</dimen>
     <dimen name="card_login_support_anim_space_top">50dp</dimen>
     <dimen name="ic_warehouse_size">100dp</dimen>
+    <dimen name="ic_img_title_size">40dp</dimen>
 </resources>

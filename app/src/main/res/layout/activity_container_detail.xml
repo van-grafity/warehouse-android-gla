@@ -12,17 +12,17 @@
         <LinearLayout
             android:id="@+id/rlHeader"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/bg_header_height"
             android:background="@color/colorPrimary"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="bottom"
                 android:orientation="vertical"
-                android:paddingHorizontal="44dp">
+                android:paddingHorizontal="@dimen/bg_header_space_horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                         android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Warehouse App"
+                        android:text="@string/warehouse_app"
                         android:textAppearance="@style/TextAppearance.Regular11"
                         android:textColor="@android:color/white" />
 
@@ -41,7 +41,7 @@
                         android:id="@+id/tvDept"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Contrainer Detail"
+                        android:text="@string/contrainer_detail"
                         android:textAppearance="@style/TextAppearance.Bold18"
                         android:textColor="@android:color/white" />
 
@@ -49,20 +49,14 @@
                         android:id="@+id/tvEditProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="4dp"
-                        android:paddingVertical="2dp"
-                        android:text="Ubah Profile"
+                        android:text="@string/profile_update"
                         android:textAppearance="@style/TextAppearance.Bold14"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold"
                         android:visibility="gone" />
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginVertical="8dp"
-                    android:background="@android:color/white" />
+                <include layout="@layout/line_header"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -70,7 +64,7 @@
             android:id="@+id/rl_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/small"
             android:orientation="vertical">
 
             <LinearLayout
@@ -82,17 +76,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginHorizontal="@dimen/small"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/ic_img_title_size"
+                        android:layout_height="@dimen/ic_img_title_size"
                         android:src="@drawable/ic_shipping" />
 
                     <androidx.legacy.widget.Space
-                        android:layout_width="6dp"
+                        android:layout_width="@dimen/xspace"
                         android:layout_height="wrap_content" />
 
                     <LinearLayout
@@ -104,7 +98,7 @@
                         <TextView
                             android:id="@+id/tv_transaction_number"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="CAIU 9181529"
                             android:textAppearance="@style/TextAppearance.Bold24"
@@ -120,17 +114,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:maxLines="3"
-                                android:text="Invoice Number :  "
+                                android:text="@string/invoice_number"
                                 android:textAppearance="@style/TextAppearance.Regular14" />
 
                             <TextView
                                 android:id="@+id/tv_pallet_no"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
                                 android:gravity="left"
                                 android:maxLines="1"
-                                android:text="January 24, 202"
                                 android:textAppearance="@style/TextAppearance.Regular14" />
                         </LinearLayout>
 
@@ -143,17 +135,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:maxLines="3"
-                                android:text="Supplier :  "
+                                android:text="@string/supplier"
                                 android:textAppearance="@style/TextAppearance.Regular14" />
 
                             <TextView
                                 android:id="@+id/tv_total_carton"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
                                 android:gravity="left"
                                 android:maxLines="1"
-                                android:text="Maxim"
                                 android:textAppearance="@style/TextAppearance.Regular14" />
                         </LinearLayout>
 
@@ -166,7 +156,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:maxLines="3"
-                                android:text="Incoming Date :  "
+                                android:text="@string/incoming_date"
                                 android:textAppearance="@style/TextAppearance.Regular14" />
 
                             <TextView
@@ -176,7 +166,6 @@
                                 android:layout_centerInParent="true"
                                 android:gravity="left"
                                 android:maxLines="1"
-                                android:text="B"
                                 android:textAppearance="@style/TextAppearance.Regular14" />
                         </LinearLayout>
                     </LinearLayout>
