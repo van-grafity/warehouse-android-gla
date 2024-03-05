@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,6 +26,7 @@ import java.util.List;
 public class ContainerDetailActivity extends AppCompatActivity implements SealActionListener {
     private ActivityContainerDetailBinding binding;
     private PackingListAdapter mAdapter;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +39,15 @@ public class ContainerDetailActivity extends AppCompatActivity implements SealAc
         populatePackingList();
 
         List<String> items = new ArrayList<>();
-        items.add("Item 1");
-        items.add("Item 2");
-        items.add("Item 3");
+        items.add("Mountain Spring");
+        items.add("63777-00");
+        items.add("LIGHT HTR GREY");
 
         // Adapter for the spinner
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        binding.spinner.setAdapter(adapter);
+        binding.completeColor.setAdapter(adapter);
+        binding.completeBatch.setAdapter(adapter);
     }
 
     private void initializeViews() {
@@ -84,26 +87,32 @@ public class ContainerDetailActivity extends AppCompatActivity implements SealAc
     private void showOpenSealConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_open_seal, null);
+
         builder.setView(dialogView);
 
         TextView textMessage = dialogView.findViewById(R.id.text_message);
+        Button btnYes = dialogView.findViewById(R.id.btn_yes);
+        Button btnCancel = dialogView.findViewById(R.id.btn_cancel);
         textMessage.setText(getString(R.string.want_to_open_seal));
 
-        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        onOpenSeal(true);
-                        dialog.dismiss();
-                    }
-                })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        onOpenSeal(false);
-                        dialog.dismiss();
-                    }
-                });
+        alertDialog = builder.create(); // Create AlertDialog instance
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        btnCancel.setOnClickListener(v -> {
+            dismissDialog();
+        });
+
+        btnYes.setOnClickListener(v -> {
+            onOpenSeal(true);
+           dismissDialog();
+        });
+
+        alertDialog.show(); // Show the dialog
+    }
+
+    private void dismissDialog() {
+        if (alertDialog != null && alertDialog.isShowing()) {
+            alertDialog.dismiss();
+        }
     }
 
     private void handleOpenSealAction(boolean isUnlocking) {

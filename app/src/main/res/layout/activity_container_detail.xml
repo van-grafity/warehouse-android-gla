@@ -227,38 +227,43 @@
             android:layout_marginHorizontal="14dp"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/spinner"
+            <com.google.android.material.textfield.TextInputLayout
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Remark"
-                android:theme="@style/SpinnerTheme"
-                android:visibility="visible" />
+                android:hint="Color"
+                app:startIconDrawable="@drawable/ic_color"
+                android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="8dp"
-                android:background="@color/colorPrimary" />
+                <AutoCompleteTextView
+                    android:id="@+id/complete_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/small"
+                    android:paddingTop="@dimen/small"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.legacy.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="8dp" />
+                android:layout_height="12dp" />
 
-            <Spinner
+            <com.google.android.material.textfield.TextInputLayout
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Remark"
-                android:theme="@style/SpinnerTheme"
-                android:visibility="visible" />
+                android:hint="Batch"
+                app:startIconDrawable="@drawable/ic_batch"
+                android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="8dp"
-                android:background="@color/colorPrimary" />
+                <AutoCompleteTextView
+                    android:id="@+id/complete_batch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/small"
+                    android:paddingTop="@dimen/small"/>
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
