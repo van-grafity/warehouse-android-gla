@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Warehouse App"
-            android:textAppearance="@style/TextAppearance.Bold28"
+            android:textAppearance="@style/TextAppearance.OmnesLight24"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
     </LinearLayout>
