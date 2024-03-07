@@ -22,6 +22,15 @@
         android:theme="@style/Theme.PackingGLA"
         android:usesCleartextTraffic="${usesCleartextTraffic}">
         <activity
+            android:name=".PackinglistRackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PackinglistLoadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PackinglistInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ContainerDetailActivity"
             android:exported="false" />
         <activity

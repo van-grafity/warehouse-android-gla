@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.ivansuhendra.warehousegla.R;
@@ -40,6 +41,13 @@ public class PackingListAdapter extends RecyclerView.Adapter<PackingListAdapter.
     public void onBindViewHolder(@NonNull PackingListAdapter.PackingListViewHolder holder, int position) {
         Model model = mItems.get(position);
         holder.tvName.setText(model.getName());
+
+        holder.btnItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mClicked.onClick(v, holder.getAdapterPosition(), model);
+            }
+        });
     }
 
     public void removeItem(int position) {
@@ -66,10 +74,12 @@ public class PackingListAdapter extends RecyclerView.Adapter<PackingListAdapter.
 
     public static class PackingListViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
+        CardView btnItemView;
 
         public PackingListViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);
+            btnItemView = itemView.findViewById(R.id.btn_item_view);
         }
     }
 }

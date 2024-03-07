@@ -56,7 +56,7 @@
                         android:visibility="gone" />
                 </LinearLayout>
 
-                <include layout="@layout/line_header"/>
+                <include layout="@layout/line_header" />
             </LinearLayout>
         </LinearLayout>
 
@@ -228,20 +228,20 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Color"
-                app:startIconDrawable="@drawable/ic_color"
-                android:layout_height="wrap_content">
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:startIconDrawable="@drawable/ic_color">
 
                 <AutoCompleteTextView
                     android:id="@+id/complete_color"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
                     android:layout_weight="1"
-                    android:paddingBottom="@dimen/small"
-                    android:paddingTop="@dimen/small"/>
+                    android:inputType="none"
+                    android:paddingTop="@dimen/small"
+                    android:paddingBottom="@dimen/small" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.legacy.widget.Space
@@ -249,20 +249,20 @@
                 android:layout_height="12dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Batch"
-                app:startIconDrawable="@drawable/ic_batch"
-                android:layout_height="wrap_content">
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:startIconDrawable="@drawable/ic_batch">
 
                 <AutoCompleteTextView
                     android:id="@+id/complete_batch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
                     android:layout_weight="1"
-                    android:paddingBottom="@dimen/small"
-                    android:paddingTop="@dimen/small"/>
+                    android:inputType="none"
+                    android:paddingTop="@dimen/small"
+                    android:paddingBottom="@dimen/small" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -292,5 +292,16 @@
                 android:visibility="visible" />
         </LinearLayout>
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/normal"
+        android:backgroundTint="#E0E4ED"
+        android:text="Back"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

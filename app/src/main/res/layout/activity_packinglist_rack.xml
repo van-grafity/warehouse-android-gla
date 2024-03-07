@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PackinglistRackActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bg_header_height"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/bg_header_space_horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/warehouse_app"
+                        android:textAppearance="@style/TextAppearance.Regular11"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/tvDept"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Packinglist to Racking"
+                        android:textAppearance="@style/TextAppearance.Bold18"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/tvEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_update"
+                        android:textAppearance="@style/TextAppearance.Bold14"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <include layout="@layout/line_header" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/small"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/ic_img_title_size"
+                        android:layout_height="@dimen/ic_img_title_size"
+                        android:src="@drawable/ic_shipping" />
+
+                    <androidx.legacy.widget.Space
+                        android:layout_width="@dimen/xspace"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_transaction_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="CAIU 9181529"
+                            android:textAppearance="@style/TextAppearance.Bold24"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text="@string/invoice_number"
+                                android:textAppearance="@style/TextAppearance.Regular14" />
+
+                            <TextView
+                                android:id="@+id/tv_pallet_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance.Regular14" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text="@string/supplier"
+                                android:textAppearance="@style/TextAppearance.Regular14" />
+
+                            <TextView
+                                android:id="@+id/tv_total_carton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance.Regular14" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text="@string/incoming_date"
+                                android:textAppearance="@style/TextAppearance.Regular14" />
+
+                            <TextView
+                                android:id="@+id/tv_location_from"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="left"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance.Regular14" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_open_seal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:elevation="16dp"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="6dp">
+
+                        <LinearLayout
+                            android:id="@+id/bg_status_seal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="4dp">
+
+                            <ImageView
+                                android:id="@+id/iv_unlock"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sealed"
+                                android:textAppearance="@style/TextAppearance.Light6"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="#DEDEDED9" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content_body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Color"
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:startIconDrawable="@drawable/ic_color">
+
+                <AutoCompleteTextView
+                    android:id="@+id/complete_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="none"
+                    android:paddingTop="@dimen/small"
+                    android:paddingBottom="@dimen/small" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Batch"
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:startIconDrawable="@drawable/ic_batch">
+
+                <AutoCompleteTextView
+                    android:id="@+id/complete_batch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="none"
+                    android:paddingTop="@dimen/small"
+                    android:paddingBottom="@dimen/small" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Packinglist :"
+                android:textAppearance="@style/TextAppearance.Bold16"
+                android:textStyle="bold" />
+
+            <androidx.legacy.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_packinglist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/normal"
+        android:backgroundTint="#E0E4ED"
+        android:text="Back"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

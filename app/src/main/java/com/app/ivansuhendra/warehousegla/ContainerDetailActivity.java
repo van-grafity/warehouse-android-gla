@@ -1,6 +1,7 @@
 package com.app.ivansuhendra.warehousegla;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,6 +68,7 @@ public class ContainerDetailActivity extends AppCompatActivity implements SealAc
             @Override
             public void onClick(View view, int position, Model carton) {
                 // Handle item click if needed
+                startActivity(new Intent(ContainerDetailActivity.this, PackinglistInfoActivity.class));
             }
         });
         binding.rvPackinglist.setAdapter(mAdapter);
