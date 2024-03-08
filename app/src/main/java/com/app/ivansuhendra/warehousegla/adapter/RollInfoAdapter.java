@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,15 +21,26 @@ public class RollInfoAdapter extends RecyclerView.Adapter<RollInfoAdapter.RollIn
     private List<Model> mItems;
     private Context mContext;
     private RollInfoAdapter.onItemClickListener mClicked;
+    private boolean isChecked;
+    private OnCheckedChangeListener mCheckedChangeListener;
 
-    public RollInfoAdapter(Context mContext, List<Model> mItems, RollInfoAdapter.onItemClickListener clicked) {
+    public RollInfoAdapter(Context mContext, List<Model> mItems, boolean isChecked, RollInfoAdapter.onItemClickListener clicked) {
         this.mContext = mContext;
         this.mItems = mItems;
+        this.isChecked = isChecked;
         this.mClicked = clicked;
     }
 
     public interface onItemClickListener {
         void onClick(View view, int position, Model carton);
+    }
+
+    public interface OnCheckedChangeListener {
+        void onCheckedChanged(boolean isChecked);
+    }
+
+    public void setCheckedChangeListener(OnCheckedChangeListener listener) {
+        this.mCheckedChangeListener = listener;
     }
 
     @NonNull
@@ -40,19 +53,7 @@ public class RollInfoAdapter extends RecyclerView.Adapter<RollInfoAdapter.RollIn
     @Override
     public void onBindViewHolder(@NonNull RollInfoAdapter.RollInfoViewHolder holder, int position) {
         Model model = mItems.get(position);
-        holder.tvName.setText(model.getName());
-
-        holder.btnItemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mClicked.onClick(v, holder.getAdapterPosition(), model);
-            }
-        });
-    }
-
-    public void removeItem(int position) {
-        mItems.remove(position);
-        notifyItemRemoved(position);
+        holder.bind(model, isChecked, mClicked);
     }
 
     public void setData(List<Model> newData) {
@@ -61,25 +62,48 @@ public class RollInfoAdapter extends RecyclerView.Adapter<RollInfoAdapter.RollIn
         notifyDataSetChanged();
     }
 
-    public void addData(List<Model> newData) {
-        int startPosition = mItems.size();
-        mItems.addAll(newData);
-        notifyItemRangeInserted(startPosition, newData.size());
-    }
-
     @Override
     public int getItemCount() {
         return mItems.size() == 0 ? 0 : mItems.size();
     }
 
-    public static class RollInfoViewHolder extends RecyclerView.ViewHolder {
+    public class RollInfoViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         CardView btnItemView;
+        CheckBox dump;
 
         public RollInfoViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);
             btnItemView = itemView.findViewById(R.id.btn_item_view);
+            dump = itemView.findViewById(R.id.dump);
+        }
+
+        public void bind(final Model model, boolean isChecked, final RollInfoAdapter.onItemClickListener clickListener) {
+            tvName.setText(model.getName());
+//            dump.setChecked(isChecked);
+
+            if (!isChecked) {
+                dump.setVisibility(View.GONE);
+            } else {
+                dump.setVisibility(View.VISIBLE);
+            }
+
+            dump.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (mCheckedChangeListener != null) {
+                        mCheckedChangeListener.onCheckedChanged(isChecked);
+                    }
+                }
+            });
+
+            btnItemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickListener.onClick(v, getAdapterPosition(), model);
+                }
+            });
         }
     }
 }

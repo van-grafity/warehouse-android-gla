@@ -66,7 +66,7 @@ public class PackinglistLoadActivity extends AppCompatActivity implements SealAc
             @Override
             public void onClick(View view, int position, Model carton) {
                 // Handle item click if needed
-                startActivity(new Intent(PackinglistLoadActivity.this, PackinglistInfoActivity.class));
+                startActivity(new Intent(PackinglistLoadActivity.this, FabricRollLoadActivity.class));
             }
         });
         binding.rvPackinglist.setAdapter(mAdapter);

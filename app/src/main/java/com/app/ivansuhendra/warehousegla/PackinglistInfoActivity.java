@@ -32,7 +32,7 @@ public class PackinglistInfoActivity extends AppCompatActivity {
 
     private void setupRollList() {
         binding.rvRoll.setLayoutManager(new GridLayoutManager(this, 1, LinearLayoutManager.VERTICAL, false));
-        mAdapter = new RollInfoAdapter(this, new ArrayList<>(), new RollInfoAdapter.onItemClickListener() {
+        mAdapter = new RollInfoAdapter(this, new ArrayList<>(), false, new RollInfoAdapter.onItemClickListener() {
             @Override
             public void onClick(View view, int position, Model carton) {
                 // Handle item click if needed
